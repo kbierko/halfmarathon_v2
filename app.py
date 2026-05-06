@@ -2,11 +2,7 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-import os
-import streamlit as st
 
-st.write("Pliki w katalogu:")
-st.write(os.listdir())
 st.title("Analiza półmaratonu wrocławskiego 2024")
 
 df = pd.read_csv("halfmarathon_wroclaw_2024__final.csv", sep=";")
@@ -57,14 +53,14 @@ with c2:
 # 10 losowych wierszy
 st.header("10 losowych wierszy")
 x = min(10, len(df))
-st.dataframe(df.sample(x), width="stretch", hide_index=True)
+st.dataframe(df.sample(x), use_container_width=True, hide_index=True)
 
 # TOP 5 zawodników
 st.header("TOP 5 zawodników")
 top_columns = ["Miejsce", "Numer startowy", "Imię", "Nazwisko", "Miasto", "Kraj", "Czas"]
 st.dataframe(
     df.sort_values("Miejsce")[top_columns].head(5),
-    width="stretch", hide_index=True
+    use_container_width=True, hide_index=True
 )
 
 # Barplot - pochodzenie zawodników
