@@ -2,7 +2,11 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+import os
+import streamlit as st
 
+st.write("Pliki w katalogu:")
+st.write(os.listdir())
 st.title("Analiza półmaratonu wrocławskiego 2024")
 
 df = pd.read_csv("halfmarathon_wroclaw_2024__final.csv", sep=";")
